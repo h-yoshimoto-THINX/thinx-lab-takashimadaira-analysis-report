@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>顧客離反分析ダッシュボード - 高島平店</title>
+    <title>顧客離反傾向分析ダッシュボード - 高島平店</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
@@ -47,6 +47,16 @@
         .analysis-section h2 { color: var(--navy-main); border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 40px; }
         .analysis-section h3 { color: var(--navy-light); font-size: 18px; margin-top: 25px; }
         .alert-box { background: #fff9e6; border-left: 5px solid var(--gold); padding: 20px; margin: 20px 0; border-radius: 4px; }
+
+        /* Table Style */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+        th { background-color: var(--navy-bg); color: var(--white); padding: 12px; text-align: left; }
+        td { padding: 12px; border-bottom: 1px solid #eee; }
+        
+        /* Only Play Tags */
+        .tag-p { background: #e1f5fe; color: #0288d1; padding: 4px 10px; border-radius: 4px; font-weight: bold; }
+        .tag-s { background: #fff3e0; color: #f57c00; padding: 4px 10px; border-radius: 4px; font-weight: bold; }
+        .tag-ps { background: #f1f5f9; color: #475569; padding: 4px 10px; border-radius: 4px; font-weight: bold; }
 
         /* Footer */
         .strategy-footer { background: var(--navy-bg); color: white; padding: 40px; border-radius: 8px; }
@@ -121,6 +131,37 @@
 
         <h2>2. 遊技種別とスタイルの偏り：Pオンリーの定着難</h2>
         <p>遊技スタイルでは、複数の種別を回遊せず「1つのスタイルに固執する」顧客の離反が顕著です。Pオンリー（パチンコのみ）ユーザーが44.7%と最大のボリュームを占めており、機種の不調や飽きを分散できず離脱する傾向にあります。対照的に、P&S両方を回遊するユーザーの離反率は低く、店舗内での回遊性が定着の鍵となっています。</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>遊技スタイル</th>
+                    <th>構成比</th>
+                    <th>平均投資額</th>
+                    <th>分析コメント</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="tag-p">Pオンリー</span></td>
+                    <td>44.7%</td>
+                    <td>約22,000円</td>
+                    <td>離反者の中で最も多いスタイル。回遊性が低く、飽きが早い傾向。</td>
+                </tr>
+                <tr>
+                    <td><span class="tag-s">Sオンリー</span></td>
+                    <td>37.2%</td>
+                    <td>約45,000円</td>
+                    <td>投資額が最も高く、負けが込んだ際の離反スピードが極めて速い。</td>
+                </tr>
+                <tr>
+                    <td><span class="tag-ps">P&S両方</span></td>
+                    <td>17.9%</td>
+                    <td>約38,000円</td>
+                    <td>最も離反しにくい層だが、離反時は店舗全体への不満が原因。</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2>3. 離反前属性の推移：どの状態から離反しやすいか</h2>
         <h3>① 絆継続・継続会員の「習慣消失」型</h3>
