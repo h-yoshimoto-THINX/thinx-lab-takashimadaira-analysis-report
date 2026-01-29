@@ -3,160 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>顧客離反傾向分析・対策戦略レポート - 高島平店</title>
+    <title>顧客離反分析レポート - 高島平店</title>
     <style>
         :root {
-            --navy-primary: #002B5B; /* コーポレートネイビー */
-            --gold-accent: #B58D3D;  /* ゴールドアクセント */
-            --light-bg: #F8FAFC;
-            --white: #FFFFFF;
-            --text-dark: #1A1A1A;
-            --text-muted: #64748B;
-            --border-color: #E2E8F0;
+            --navy-dark: #001f3f; /* ベースの紺色 */
+            --navy-main: #003366;
+            --accent-gold: #c5a059;
+            --bg-light: #f4f7f9;
+            --text-main: #333333;
+            --white: #ffffff;
         }
-        body { font-family: 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif; line-height: 1.6; color: var(--text-dark); background-color: var(--light-bg); margin: 0; padding: 0; }
-        .wrapper { max-width: 1100px; margin: 40px auto; background: var(--white); box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-radius: 2px; }
-        header { background-color: var(--navy-primary); color: var(--white); padding: 50px 40px; border-bottom: 4px solid var(--gold-accent); }
-        header h1 { margin: 0; font-size: 28px; letter-spacing: 2px; font-weight: 700; }
-        header p { margin: 10px 0 0; opacity: 0.8; font-size: 16px; }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif; color: var(--text-main); background-color: var(--bg-light); line-height: 1.8; margin: 0; padding: 0; }
+        .report-wrapper { max-width: 1050px; margin: 30px auto; background: var(--white); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        header { background-color: var(--navy-dark); color: var(--white); padding: 40px; border-bottom: 4px solid var(--accent-gold); }
+        header h1 { margin: 0; font-size: 26px; letter-spacing: 0.1em; }
+        header .meta { margin-top: 10px; opacity: 0.8; font-size: 14px; }
         
-        .main-content { padding: 40px; }
-        h2 { color: var(--navy-primary); font-size: 22px; border-left: 5px solid var(--gold-accent); padding-left: 15px; margin: 40px 0 20px; }
-        h3 { color: var(--navy-primary); font-size: 18px; margin-top: 30px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        .container { padding: 40px; }
+        h2 { color: var(--navy-main); border-left: 6px solid var(--navy-main); padding-left: 15px; margin-top: 40px; font-size: 20px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        h3 { color: var(--navy-main); font-size: 18px; margin-top: 25px; display: flex; align-items: center; }
+        h3::before { content: ""; display: inline-block; width: 10px; height: 10px; background: var(--accent-gold); margin-right: 10px; }
         
-        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .metric-card { background: var(--light-bg); border: 1px solid var(--border-color); padding: 20px; border-radius: 4px; text-align: center; }
-        .metric-value { display: block; font-size: 32px; font-weight: bold; color: var(--navy-primary); margin-bottom: 5px; }
-        .metric-label { font-size: 13px; color: var(--text-muted); font-weight: 600; }
-
-        .analysis-box { background: #fdfdfd; border: 1px solid var(--border-color); padding: 25px; margin: 20px 0; border-radius: 4px; }
-        .analysis-box strong { color: var(--navy-primary); }
-
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0; }
+        .stat-card { background: #f9f9f9; padding: 20px; border: 1px solid #e0e0e0; border-radius: 4px; }
+        .stat-num { font-size: 28px; font-weight: bold; color: var(--navy-main); }
+        
         table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        th { background-color: var(--navy-primary); color: var(--white); padding: 12px 15px; text-align: left; font-size: 14px; font-weight: 500; }
-        td { padding: 12px 15px; border-bottom: 1px solid var(--border-color); font-size: 14px; }
-        tr:hover { background-color: #f1f5f9; }
+        th { background-color: var(--navy-main); color: var(--white); padding: 12px; text-align: left; font-size: 14px; }
+        td { padding: 12px; border-bottom: 1px solid #eee; font-size: 14px; }
+        .highlight-row { background-color: #f0f4f8; }
 
-        .tag { padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: bold; }
-        .tag-alert { background: #fee2e2; color: #b91c1c; }
-        .tag-normal { background: #f1f5f9; color: #475569; }
+        .analysis-note { background: #fff8e1; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0; font-size: 14px; }
+        
+        .strategy-box { background: var(--navy-dark); color: var(--white); padding: 30px; border-radius: 4px; margin-top: 40px; }
+        .strategy-box h2 { color: var(--white); border-left-color: var(--accent-gold); border-bottom: none; }
+        .action-item { margin-bottom: 20px; }
+        .action-item strong { color: var(--accent-gold); font-size: 16px; }
 
-        .strategy-section { background-color: var(--navy-primary); color: var(--white); padding: 40px; margin-top: 50px; border-radius: 4px; }
-        .strategy-section h2 { color: var(--gold-accent); border-left-color: var(--gold-accent); margin-top: 0; }
-        .strategy-item { margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
-        .strategy-item:last-child { border-bottom: none; }
-        .strategy-item h4 { color: var(--gold-accent); margin: 0 0 10px 0; font-size: 17px; }
-
-        footer { text-align: center; padding: 30px; color: var(--text-muted); font-size: 12px; border-top: 1px solid var(--border-color); }
+        .tag { padding: 2px 8px; border-radius: 3px; font-size: 11px; font-weight: bold; text-transform: uppercase; }
+        .tag-high { background: #ff5252; color: white; }
+        .tag-mid { background: #ffab40; color: white; }
     </style>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="report-wrapper">
         <header>
-            <h1>離反傾向分析・アクションプラン</h1>
-            <p>高島平店 | 2025年10月-12月データに基づく戦略レポート</p>
+            <h1>顧客離反傾向分析および改善戦略レポート</h1>
+            <div class="meta">対象：高島平店 | 期間：2025年10月〜12月 | 離反会員数：828名</div>
         </header>
 
-        <div class="main-content">
-            <h2>1. 離反構造の概況</h2>
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <span class="metric-value">60.9%</span>
-                    <span class="metric-label">AIアラート検知率</span>
+        <div class="container">
+            <h2>1. 来店パターンの傾向：平日・昼間層の脆弱性</h2>
+            <p>離反会員の来店傾向を分析したところ、休日に比べ<strong>平日の利用頻度が高い顧客</strong>の離脱が目立ちます。</p>
+            <div class="grid">
+                <div class="stat-card">
+                    <div class="stat-label">平日平均来店回数</div>
+                    <div class="stat-num">2.00回</div>
+                    <p style="font-size:12px;">休日（0.94回）の2倍以上。平日の常連層が離反の主力。</p>
                 </div>
-                <div class="metric-card">
-                    <span class="metric-value">44.7%</span>
-                    <span class="metric-label">Pオンリー遊技比率</span>
-                </div>
-                <div class="metric-card">
-                    <span class="metric-value">68.1%</span>
-                    <span class="metric-label">平日来店比率</span>
-                </div>
-                <div class="metric-card">
-                    <span class="metric-value">16.4%</span>
-                    <span class="metric-label">「絆」客の離反比率</span>
+                <div class="stat-card">
+                    <div class="stat-label">シニア層（70代+）昼来店</div>
+                    <div class="stat-num">2.49回</div>
+                    <p style="font-size:12px;">昼間メインのシニア層の離脱は、平日稼働に直結します。</p>
                 </div>
             </div>
+            <p>特に昼間来店回数が多い（平均2回以上）層は、店舗を生活サイクルに組み込んでいた可能性が高く、その層が辞めることは「習慣の断絶」を意味し、回復が困難な離反と言えます。</p>
 
-            <h2>2. 属性推移から見る離反の予兆</h2>
-            <p>離反直前（1〜3ヶ月前）の顧客属性を分析すると、特定のパターンが離反リスクを高めていることが分かりました。</p>
-            
-            <div class="analysis-box">
-                <strong>① 「サイレント離反」パターン（絆継続会員）</strong><br>
-                3ヶ月前から一貫して「絆継続会員」であった優良客が、予兆なく離反するケースが離反者全体の約10%（87名）存在します。この層のAIアラート検知率は45.6%と低く、データ上の変化が現れる前に心が離れている「感情的離反」の可能性が高いと言えます。
-            </div>
-
-            <div class="analysis-box">
-                <strong>② 「復活直後の再離脱」パターン</strong><br>
-                「1〜2ヶ月前に復活した会員」の離反が目立ちます。一度離れた顧客が戻ってきた際、その直後の1ヶ月間で満足のいく体験（または適切なフォロー）が得られなかった場合、非常に高い確率で再度離反に至っています。
-            </div>
-
-            <h2>3. 来店パターンおよび遊技種別の傾向分析</h2>
-            
-            <h3>■ 平日・昼間の稼働依存</h3>
-            <p>離反会員の来店は<strong>「平日・昼間」</strong>に強く偏っています。特に70代以上のシニア層は、昼間の来店回数が平均2.49回と全世代で突出しており、平日のホールコミュニティを支えていた顧客の流出が懸念されます。</p>
-
-            <h3>■ 偏った遊技スタイルのリスク</h3>
-            <p>遊技スタイルが「Pオンリー（パチンコのみ）」に偏っている会員が44.7%と最も多く、次いで「Sオンリー」が37.2%です。特定の機種や貸玉に固執する顧客ほど、その機種の不調や飽きが直接的な離反に直結しており、遊技の幅を広げられていない実態があります。</p>
-
-            <h2>4. AIアラートの活用実態と課題</h2>
+            <h2>2. 遊技種別とスタイルの偏り：Pオンリーの定着難</h2>
+            <p>遊技スタイルでは、複数の種別を回遊せず「1つのスタイルに固執する」顧客の離反が顕著です。</p>
             <table>
-                <thead>
-                    <tr>
-                        <th>直前属性（1ヶ月前）</th>
-                        <th>離反者数</th>
-                        <th>AI検知済み</th>
-                        <th>AI未検知（漏れ）</th>
-                        <th>リスク評価</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>継続会員</td>
-                        <td>165名</td>
-                        <td>96名</td>
-                        <td>69名</td>
-                        <td><span class="tag tag-normal">中リスク</span></td>
-                    </tr>
-                    <tr>
-                        <td>絆継続会員</td>
-                        <td>114名</td>
-                        <td>51名</td>
-                        <td style="color:red; font-weight:bold;">63名</td>
-                        <td><span class="tag tag-alert">高リスク・要注意</span></td>
-                    </tr>
-                    <tr>
-                        <td>1ヶ月復活会員</td>
-                        <td>53名</td>
-                        <td>37名</td>
-                        <td>16名</td>
-                        <td><span class="tag tag-normal">中リスク</span></td>
-                    </tr>
-                </tbody>
+                <tr>
+                    <th>遊技スタイル</th>
+                    <th>離反者構成比</th>
+                    <th>傾向とリスク</th>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Pオンリー（パチンコのみ）</strong></td>
+                    <td><strong>44.7%</strong></td>
+                    <td>最大の離反ボリューム。機種の不調や飽きを分散できず離脱。</td>
+                </tr>
+                <tr>
+                    <td>Sオンリー（スロットのみ）</td>
+                    <td>37.2%</td>
+                    <td>20Sメインが多く、短期間での大敗による突発的離反が目立つ。</td>
+                </tr>
+                <tr>
+                    <td>P&S（回遊ユーザー）</td>
+                    <td>17.9%</td>
+                    <td>離反率は最も低い。回遊がある顧客は店舗への滞在理由が強い。</td>
+                </tr>
             </table>
 
-            <div class="strategy-section">
-                <h2>5. 次期に向けた重点実施事項</h2>
+            <h2>3. 離反前属性の推移：どの状態から離反しやすいか</h2>
+            <p>離反する3ヶ月前から1ヶ月前までの属性推移を分析すると、以下の「危険パターン」が見えてきます。</p>
+            
+            <h3>① 絆継続・継続会員の「習慣消失」型</h3>
+            <p>1ヶ月前まで「継続」または「絆継続」だった層が離反者の約34%（279名）を占めます。特に、3ヶ月連続で「絆継続」だったにも関わらず離反したケースが約10%存在し、長年の常連であっても「ある日突然」来店が止まるリスクを示しています。</p>
+
+            <h3>② 復活直後の「再離脱」型</h3>
+            <p>「1ヶ月前または2ヶ月前に復活したばかり」の会員が離反するケースも多く（約10%）、復活した際に「以前と同じ、あるいはそれ以上の満足度」を提供できなかったことが再離反を招いています。</p>
+
+            <h3>③ 履歴不明（低頻度）型</h3>
+            <p>1ヶ月前の属性が「未記録（NaN）」の層が約47%存在します。これらは新規客、あるいは数ヶ月ぶりの来店客であり、「初回の体験」で次回来店を断念させている実態があります。</p>
+
+            <h2>4. AIアラートの的中精度と活用の現状</h2>
+            <div class="analysis-note">
+                <strong>AIアラート全体捕捉率：60.9%</strong><br>
+                離反者の約6割はAIが事前に「離反の可能性が高い」と判定していました。しかし、残りの約4割はアラート対象外の「サイレント離反」です。
+            </div>
+            <table>
+                <tr>
+                    <th>属性別アラート検知率</th>
+                    <th>検知率</th>
+                    <th>状況分析</th>
+                </tr>
+                <tr>
+                    <td>一般継続会員</td>
+                    <td>58.2%</td>
+                    <td>比較的予測通り。来店頻度の低下をAIが検知。</td>
+                </tr>
+                <tr>
+                    <td><strong>絆継続会員（最重要）</strong></td>
+                    <td style="color:red; font-weight:bold;">44.7%</td>
+                    <td>予測漏れが半分以上。数値に現れない「不満」が先行。</td>
+                </tr>
+                <tr>
+                    <td>復活会員（1-2ヶ月）</td>
+                    <td>61.9%</td>
+                    <td>AIも警戒している層。フォローが間に合っていない。</td>
+                </tr>
+            </table>
+
+            <div class="strategy-box">
+                <h2>5. 今後の重点改善戦略</h2>
                 
-                <div class="strategy-item">
-                    <h4>1. 「絆客」への対面フォローの強化（アナログ施策）</h4>
-                    <p>AIアラートで検知しきれない「絆継続会員」の離反を防ぐため、ホールコンピュータ等で「直近2週間の未来店」や「投資金額の急増」を検知した際、スタッフによるお声がけや、手書きのメッセージカード添えたDM送付など、人間味のあるアプローチを優先してください。</p>
+                <div class="action-item">
+                    <strong>1. 絆客への「非デジタル・ケア」の徹底</strong>
+                    <p>AIアラート検知率が低い「絆客（ロイヤル層）」に対し、数値化される前の不満（特定の負け体験など）を現場で察知する必要があります。「平日昼間の特定機種でのハマり」などをトリガーに、役職者による積極的なフォローを実施してください。</p>
                 </div>
 
-                <div class="strategy-item">
-                    <h4>2. 復活会員の「定着1ヶ月」集中ガード</h4>
-                    <p>1ヶ月・2ヶ月復活会員に対しては、再来店から1ヶ月間を「最重要保護期間」と定義します。この期間の顧客には、次回来店時に特典があるクーポン付与や、嗜好機種の最新情報を優先的に届けるなど、再離反の壁を乗り越えるための動機付けを集中させます。</p>
+                <div class="action-item">
+                    <strong>2. 復活会員への「2回目来店」確約施策</strong>
+                    <p>復活した会員の離反が多いため、復活来店当日の満足度向上はもちろん、その後の「1週間以内」「1ヶ月以内」の再来店を促す限定特典の付与など、再定着のための「ステップアップ・プログラム」を構築します。</p>
                 </div>
 
-                <div class="strategy-item">
-                    <h4>3. 平日昼間の「滞在価値」の再定義</h4>
-                    <p>平日・昼間メインのシニア層に対し、単なる遊技提供に留まらない「居心地の良い空間」を提供します。休憩スペースの利便性向上や、スタッフとの接点増加により、店舗を「ルーティン（習慣）」として再定着させる施策を平日シフトの重点課題とします。</p>
+                <div class="action-item">
+                    <strong>3. Pオンリー層の「回遊」促進</strong>
+                    <p>離反率が最も高いPオンリー層に対し、スロットへの興味喚起や、逆にスロット層へのパチンコ訴求を行い、店舗内での「遊びの選択肢」を広げさせます。これにより、単一機種の稼働状況に左右されない顧客基盤を構築します。</p>
                 </div>
             </div>
         </div>
 
         <footer>
-            <p>© 2026 Data Analysis Group | 高島平店 戦略策定プロジェクト</p>
+            <p>© 2026 高島平店 戦略分析プロジェクト | データに基づいた店舗運営の最適化</p>
         </footer>
     </div>
 </body>
