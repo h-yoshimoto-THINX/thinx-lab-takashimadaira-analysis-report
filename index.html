@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>離反会員分析レポート - 高島平店（2025年10-12月）</title>
+    <style>
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; line-height: 1.6; color: #333; max-width: 1000px; margin: 0 auto; padding: 20px; background-color: #f4f7f6; }
+        .report-container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; text-align: center; }
+        h2 { color: #2980b9; border-left: 5px solid #2980b9; padding-left: 15px; margin-top: 30px; }
+        h3 { color: #16a085; margin-top: 20px; }
+        .summary-box { background-color: #e8f4fd; border: 1px solid #3498db; padding: 20px; border-radius: 5px; margin-bottom: 30px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; color: #2c3e50; }
+        .highlight { font-weight: bold; color: #e74c3c; }
+        .action-item { background-color: #fff9e6; border-left: 5px solid #f1c40f; padding: 15px; margin-bottom: 15px; }
+        .footer { margin-top: 50px; text-align: center; font-size: 0.9em; color: #7f8c8d; }
+        .chart-placeholder { text-align: center; margin: 30px 0; background: #fafafa; border: 1px dashed #ccc; padding: 40px; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="report-container">
+        <h1>顧客離反傾向分析および防止策の提案</h1>
+        <p style="text-align: right;">対象店舗：高島平店<br>対象期間：2025年10月 〜 12月</p>
+
+        <div class="summary-box">
+            <h2>エグゼクティブ・サマリー</h2>
+            <p>本レポートは、直近3ヶ月間に離反した会員828名のデータを分析したものです。分析の結果、離反の主要因は<strong>「負け体験の蓄積」</strong>と<strong>「来店頻度が低いライトユーザーの早期離脱」</strong>であることが判明しました。特に20円スロット（20S）ユーザーが半数を占め、ボリュームゾーンである30代〜50代の男性客の定着率向上が喫緊の課題です。</p>
+        </div>
+
+        <h2>1. 離反会員のプロファイル分析</h2>
+        
+        <h3>属性分布</h3>
+        <ul>
+            <li><strong>性別：</strong>男性が約80%を占め、圧倒的に多い。</li>
+            <li><strong>年齢層：</strong>30代が最多。次いで40代、50代と、現役世代の離反が目立つ。</li>
+            <li><strong>メイン種別：</strong>20円スロット（20S）が50.1%と過半数。1円パチンコ（1P）が27.5%で続く。</li>
+        </ul>
+
+        <h3>遊技成績と離反の相関</h3>
+        <table>
+            <tr>
+                <th>勝敗属性</th>
+                <th>会員数</th>
+                <th>割合</th>
+                <th>傾向</th>
+            </tr>
+            <tr>
+                <td>負けユーザー</td>
+                <td>623名</td>
+                <td class="highlight">75.2%</td>
+                <td>離反の最大の要因。負けが込み、期待感が消失したタイミングで離脱。</td>
+            </tr>
+            <tr>
+                <td>勝ちユーザー</td>
+                <td>124名</td>
+                <td>15.0%</td>
+                <td>勝っているにも関わらず離反。他店への流出や、目的達成（勝ち逃げ）が推測される。</td>
+            </tr>
+            <tr>
+                <td>引分・その他</td>
+                <td>81名</td>
+                <td>9.8%</td>
+                <td>刺激不足による離脱の可能性。</td>
+            </tr>
+        </table>
+
+        <h2>2. 重要セグメント別・離反の共通点</h2>
+
+        <h3>① ロイヤリティ客（ランクB以上）の離反：1Pユーザー・高齢層</h3>
+        <p>優良客（S, SS, Aランク）の離反者の中には、<strong>70代の1円パチンコ（1P）ユーザー</strong>が散見されます。海物語シリーズやジャグラー等の定番機種を好みますが、数回の連続した負け体験が引き金となり、長年の習慣が途切れる傾向にあります。</p>
+
+        <h3>② 新規・ライト層（ランクE）の離反：20Sユーザー・若年〜中年層</h3>
+        <p>離反者の約45%を占めるのがEランクのユーザーです。来店回数が月1〜2回と少なく、初回または数回目の来店で大きく負けた場合、再来店の動機を失っています。AIアラートの「翌月離反の可能性が高い」に最も合致する層です。</p>
+
+        <h2>3. 離反防止のための提案アクション（先回り対策）</h2>
+
+        <div class="action-item">
+            <strong>アクション1：AIアラート連動型「クイック・サンクスDM」の送付</strong>
+            <p>AIが「翌月離反の可能性が高い」と判定したユーザー（全離反者の約60%が該当）に対し、離反が確定する前に、来店時の嗜好機種に基づいた限定情報の案内や、来店御礼のメッセージを自動送付する仕組みを強化してください。</p>
+        </div>
+
+        <div class="action-item">
+            <strong>アクション2：高齢優良客への「フロア・コミュニケーション」強化</strong>
+            <p>70代以上の1P/ジャグラーメインの優良客が「当日負けている」際、または「2連敗している」際に、スタッフによる積極的なお声がけや接客を行い、店舗への心理的負債を軽減させるホスピタリティ対策を実施してください。</p>
+        </div>
+
+        <div class="action-item">
+            <strong>アクション3：20Sユーザー向け「再来店動機」の創出</strong>
+            <p>30-50代の20Sユーザーに対し、負け体験を上回る「遊技の楽しさ」や「新台情報」を、彼らが最も反応しやすいSNSやプッシュ通知でパーソナライズして届けます。特に「Lゴジラ対エヴァンゲリオン」等の特定の好まれやすい機種の稼働状況をフックにします。</p>
+        </div>
+
+        <h2>4. 結論</h2>
+        <p>高島平店の離反対策は、<strong>「AI予測に基づく早期アプローチ」</strong>と<strong>「負け体験をしている優良客への対面フォロー」</strong>の両輪が必要です。特にデータ上、離反の予兆は「遊技時間の減少」と「投資金額に対するリターンの欠如」に顕著に現れています。これらをリアルタイムで検知し、現場のアクションに繋げることが離反防止の鍵となります。</p>
+
+        <div class="footer">
+            <p>© 2026 Data Analysis & Consulting Group | 高島平店 分析プロジェクト</p>
+        </div>
+    </div>
+</body>
+</html>
